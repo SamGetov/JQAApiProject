@@ -22,7 +22,7 @@ public class ConfigFileParser {
 
     public void configCredentialsParsing() throws IOException, ParseException {
         JSONParser jsonparser = new JSONParser();
-        FileReader reader = new FileReader("C:/Users/Samuil/Desktop/JQA API Project/java-api-project-Samuil" +
+        FileReader reader = new FileReader("C:\\Users\\Samuil\\Desktop\\JQA API Github\\JQAApiProject" +
                 "/src/main/java/configFile/config.json");
         Object object = jsonparser.parse(reader);
         JSONObject configJsonObj = (JSONObject) object;
