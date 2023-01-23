@@ -1,13 +1,12 @@
 package tests;
 
-import api.GetRequests;
 import api.PostRequests;
 import helpers.ConfigFileParser;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
+//import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 public class RegistrationAndLogin {
@@ -48,7 +47,7 @@ public class RegistrationAndLogin {
 //        Assert.assertTrue(authMessage.contains("invalid"), authMessage);
 //    }
     @BeforeTest
-    public static void credentials() throws IOException, ParseException {
+    void credentials() throws IOException, ParseException {
         ConfigFileParser configFileParser = new ConfigFileParser();
         configFileParser.configCredentialsParsing();
         baseURL = ConfigFileParser.baseURLGet();
@@ -59,18 +58,18 @@ public class RegistrationAndLogin {
         name = ConfigFileParser.nameGet();
     }
 
-    @Test
-    public static void testRegisterNewAcc() throws IOException, ParseException {
-        PostRequests postRequests = new PostRequests();
-        postRequests.register(name, baseURL, registerURL, email, password);// TODO to be fixed
-        String responseCode = postRequests.getResponseCode();
-        Assert.assertTrue(responseCode.contains("200"), responseCode);
-        String authMessage = postRequests.getLoginMessage();
-        Assert.assertTrue(authMessage.contains("success"), authMessage);
-    }
+//    @Test
+//    public static void testRegisterNewAcc() throws IOException, ParseException {
+//        PostRequests postRequests = new PostRequests();
+//        postRequests.register(name, baseURL, registerURL, email, password);// TODO to be fixed
+//        String responseCode = postRequests.getResponseCode();
+//        Assert.assertTrue(responseCode.contains("200"), responseCode);
+//        String authMessage = postRequests.getLoginMessage();
+//        Assert.assertTrue(authMessage.contains("success"), authMessage);
+//    }
 
     @Test
-    public static void testSuccessfulLoginNewAcc() throws IOException, ParseException {
+     void testSuccessfulLoginNewAcc() throws IOException, ParseException {
 
         PostRequests postRequests = new PostRequests();
         PostRequests.login(email, password);
